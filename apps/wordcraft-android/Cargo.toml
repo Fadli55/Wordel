@@ -9,6 +9,9 @@ publish = false
 [lints]
 workspace = true
 
+[lints.rust]
+unsafe_code = "allow"
+
 [lib]
 name = "wordcraft_android"
 crate-type = ["cdylib", "rlib"]

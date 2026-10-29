@@ -13,7 +13,7 @@ use android_activity::AndroidApp;
 
 /// Android native entry point invoked by the Android activity loader.
 #[cfg(target_os = "android")]
-#[no_mangle]
+#[unsafe(no_mangle)]
 fn android_main(app: AndroidApp) {
     android_logger::init_once(
         android_logger::Config::default()
@@ -46,14 +46,7 @@ fn android_main(app: AndroidApp) {
     if let Err(e) = eframe::run_native(
         "WordCraft",
         options,
-        Box::new(move |cc| {
-            // Tune touch interaction scaling for mobile displays
-            let mut style = (*cc.egui_ctx.style()).clone();
-            style.spacing.interact_size.y = style.spacing.interact_size.y.max(28.0);
-            cc.egui_ctx.set_style(style);
-
-            Ok(Box::new(shell))
-        }),
+        Box::new(move |_cc| Ok(Box::new(shell))),
     ) {
         log::error!("eframe run_native failed: {e:?}");
     }

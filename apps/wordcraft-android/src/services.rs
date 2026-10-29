@@ -1,7 +1,6 @@
 //! Android platform services: file storage, asynchronous document delivery, and system integration.
 
 use std::path::PathBuf;
-use std::sync::{Arc, Mutex};
 use wordcraft_ui_egui::{Inbox, Services};
 
 /// Creates the Android host services bundle for [`wordcraft_ui_egui::WordApp`].
