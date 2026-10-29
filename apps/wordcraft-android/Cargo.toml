@@ -36,7 +36,8 @@ label = "WordCraft"
 version_code = 1
 min_sdk_version = 26
 target_sdk_version = 34
-build_targets = ["aarch64-linux-android", "armv7-linux-androideabi", "x86_64-linux-android"]
+build_targets = ["aarch64-linux-android"]
+res = "res"
 icon = "@mipmap/ic_launcher"
 
 [package.metadata.android.application]
