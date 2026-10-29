@@ -33,7 +33,6 @@ image = { workspace = true }
 package = "ai.storyteller.wordcraft"
 apk_name = "WordCraft"
 label = "WordCraft"
-version_code = 1
 min_sdk_version = 26
 target_sdk_version = 34
 build_targets = ["aarch64-linux-android"]

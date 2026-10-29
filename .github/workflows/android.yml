@@ -49,6 +49,7 @@ jobs:
 
       - name: Build Android APK (Release)
         run: |
+          unset ANDROID_SDK_ROOT || true
           cargo apk build --release -p wordcraft-android
 
       - name: Upload APK Artifact
