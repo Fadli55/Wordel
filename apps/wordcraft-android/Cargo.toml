@@ -21,7 +21,6 @@ wordcraft-fonts = { workspace = true }
 egui = { workspace = true }
 eframe = { workspace = true, features = ["default_fonts", "wgpu", "android-game-activity"] }
 android-activity = { version = "0.6", features = ["game-activity"] }
-winit = { workspace = true, features = ["android-game-activity"] }
 log = { workspace = true }
 android_logger = "0.14"
 serde_json = { workspace = true }
