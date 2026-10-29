@@ -1,0 +1,55 @@
+[package]
+name = "wordcraft-android"
+description = "WordCraft on Android (eframe native runner, WGPU backend)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[lints]
+workspace = true
+
+[lib]
+name = "wordcraft_android"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+wordcraft-engine = { workspace = true }
+wordcraft-ui-egui = { workspace = true }
+wordcraft-doc = { workspace = true }
+wordcraft-fonts = { workspace = true }
+egui = { workspace = true }
+eframe = { workspace = true, features = ["default_fonts", "wgpu", "android-game-activity"] }
+android-activity = { version = "0.6", features = ["game-activity"] }
+winit = { workspace = true, features = ["android-game-activity"] }
+log = { workspace = true }
+android_logger = "0.14"
+serde_json = { workspace = true }
+chrono = { workspace = true }
+pollster = "1"
+image = { workspace = true }
+
+[package.metadata.android]
+package = "ai.storyteller.wordcraft"
+apk_name = "WordCraft"
+label = "WordCraft"
+version_code = 1
+min_sdk_version = 26
+target_sdk_version = 34
+build_targets = ["aarch64-linux-android", "armv7-linux-androideabi", "x86_64-linux-android"]
+icon = "@mipmap/ic_launcher"
+
+[package.metadata.android.application]
+label = "WordCraft"
+theme = "@android:style/Theme.NoTitleBar.Fullscreen"
+
+[[package.metadata.android.uses_permission]]
+name = "android.permission.INTERNET"
+
+[[package.metadata.android.uses_permission]]
+name = "android.permission.READ_EXTERNAL_STORAGE"
+max_sdk_version = 32
+
+[[package.metadata.android.uses_permission]]
+name = "android.permission.WRITE_EXTERNAL_STORAGE"
+max_sdk_version = 29
